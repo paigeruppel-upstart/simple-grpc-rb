@@ -1,0 +1,6 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/.idea/
+/build
+.DS_Store

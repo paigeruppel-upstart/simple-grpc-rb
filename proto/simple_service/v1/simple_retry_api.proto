@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package simple_service.v1;
+
+// A configurable retry api
+service SimpleRetryAPI {
+  // request a specific series of responses
+  rpc RetriableAction(RetriableActionRequest) returns (RetriableActionResponse) {}
+}
+
+message RetriableActionRequest {
+  // Unique id to associate with request
+  string request_id = 1;
+  // How to respond to the request - server will use this + times attempted to respond
+  //  if there is no respond_with for an attempt, the server will respond with OK
+  repeated RespondWith respond_with = 2;
+}
+
+message RetriableActionResponse {
+  // The unique id associated with the request
+  string request_id = 1;
+  // Number of times the request was attempted
+  int32 number_attempts = 2;
+}
+
+message RespondWith {
+  // The gRPC status code to respond with
+  uint32 status_code = 1;
+}
