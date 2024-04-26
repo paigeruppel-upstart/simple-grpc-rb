@@ -30,7 +30,7 @@ bundle exec app/server
 
 ### Run a retry client against the above server
 
-- Client configured with channel args / service_config:  
+Client configured with channel args / service_config  
 ```shell
 bundle exec app/configured_retry_client.rb 5555
 ```
@@ -45,7 +45,7 @@ bundle exec app/manual_retry_client.rb 5555
 
 (Assumes the python server is running on the default [PYTHON_SERVER_PORT](app/constants.rb))
 
-- Client configured with channel args / service_config:
+Client configured with channel args / service_config:
 ```shell
 bundle exec app/configured_retry_client.rb 7777
 ```
